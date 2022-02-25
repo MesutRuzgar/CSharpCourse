@@ -58,15 +58,31 @@ namespace TypesAndVariables
             //örneğin para tutarı.
             //aradaki farkı ise ondalıklı sayı yazınca sonuna "m" veya "M" eklemek gerekiyor.
             //ondalıkli değil ise atadığın değer "m" yazmak zorunlu değil.
+
             decimal number10 = 10.4m;
 
+            //Enum veri tipi de değer tiptir.
+            //magic string yapmış oluyoruz her yeri değiştirmemek için
 
+            //if (Days.Friday==...)
+            //{
+
+            //}
+
+            //başına (int) yazınca yazdırdığımız değerin sayısal karşılığını bize verir
+            //enumda istersek o sayısal değerleri değiştirebiliriz bunu unutma.
 
             Console.WriteLine("Number1 is {0}", number10);
+            Console.WriteLine((int)Days.Friday);
             Console.ReadLine();
 
 
 
+        }
+
+        enum Days
+        {
+            Monday=10,TuesDay=20,Wednesday,Thursday,Friday,Saturday,Sunday
         }
     }
 }
