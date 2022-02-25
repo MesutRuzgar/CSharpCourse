@@ -47,7 +47,13 @@ namespace TypesAndVariables
 
             char character = 'A';
 
-            Console.WriteLine("Number1 is {0}",character);
+            //double veri tipi tam sayı tanımlayabiliriz sadece ondalıklı olmayabilir.
+            //ancak ondalıklı sayıyı int içerisinde tanımlayamayız.
+            //64 byte yer tutar
+
+            double number9 = 10.4;
+
+            Console.WriteLine("Number1 is {0}",number9);
             Console.ReadLine();
 
 
