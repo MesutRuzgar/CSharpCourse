@@ -53,7 +53,16 @@ namespace TypesAndVariables
 
             double number9 = 10.4;
 
-            Console.WriteLine("Number1 is {0}",number9);
+            //decimal veri tipi doubleye göre daha fazla karakter tutar
+            //doubleye göre daha hassas işler için kullanılır
+            //örneğin para tutarı.
+            //aradaki farkı ise ondalıklı sayı yazınca sonuna "m" veya "M" eklemek gerekiyor.
+            //ondalıkli değil ise atadığın değer "m" yazmak zorunlu değil.
+            decimal number10 = 10.4m;
+
+
+
+            Console.WriteLine("Number1 is {0}", number10);
             Console.ReadLine();
 
 
