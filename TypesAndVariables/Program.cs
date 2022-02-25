@@ -38,7 +38,12 @@ namespace TypesAndVariables
             byte number7 = 0;
             byte number8 = 255;
 
-            Console.WriteLine("Number1 is {0}",number4);
+            //boolean veri tipi mantıksal veri tipidir
+            //değer tiptir
+
+            bool condition = true;
+
+            Console.WriteLine("Number1 is {0}",condition);
             Console.ReadLine();
 
 
