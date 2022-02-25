@@ -43,7 +43,11 @@ namespace TypesAndVariables
 
             bool condition = true;
 
-            Console.WriteLine("Number1 is {0}",condition);
+            //char veri tipi değer tiptir
+
+            char character = 'A';
+
+            Console.WriteLine("Number1 is {0}",character);
             Console.ReadLine();
 
 
