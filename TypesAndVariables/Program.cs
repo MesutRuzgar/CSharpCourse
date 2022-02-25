@@ -32,6 +32,12 @@ namespace TypesAndVariables
             short number5 = -32768;
             short number6 = 32767;
 
+            //byte veri tipi 8 byte yer kaplar
+            //byte veri tipinin alabileceği max ve min rakamlar
+
+            byte number7 = 0;
+            byte number8 = 255;
+
             Console.WriteLine("Number1 is {0}",number4);
             Console.ReadLine();
 
