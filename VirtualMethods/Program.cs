@@ -13,6 +13,7 @@ namespace VirtualMethods
         //kodu olurda başka yerde aynı methodu farklı kodlarla
         //çalıştırmamız gerekirse diye override etmemize yani ezmemize
         //yarıyor.
+        //inteface ile bunu gerçekleştiremeyiz inherit burada zorunlu
 
         static void Main(string[] args)
         {
