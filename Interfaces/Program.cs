@@ -9,12 +9,26 @@ namespace Interfaces
         {
             //InterfacesIntro();
             //IsNewInterface();
+            //Demo();
 
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new OracleCustomerDal());
+
+            //birden fazla veritabanına aynı anda ekleme yapmak için kullandık.
+            ICustomerDal[] customerDals = new ICustomerDal[3] { 
+                new MySqlCustomerDal() ,new SqlServerCustomerDal(), new OracleCustomerDal() };
+
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
 
             Console.ReadLine();
 
+        }
+
+        private static void Demo()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new OracleCustomerDal());
         }
 
         private static void IsNewInterface()
