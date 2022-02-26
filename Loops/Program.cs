@@ -11,17 +11,21 @@ namespace Loops
         static void Main(string[] args)
         {
             //ForLoop();
+            //WhileLoop();
 
 
-            int number = 100;
-            while (number >= 0)
+            int number = 10;
+            do
             {
-                Console.WriteLine(100);
-                //whilede koda bu şekilde müdahale etmez isek kod sonsuza kadar çalışır.
+                Console.WriteLine(number);
                 number--;
 
-            }
+                //çok kullanılmayan bir yöntem
+                //While koşulu sağlanmasa bile kod 1 kez çalışır
+                //örnek olarak data yoksa sayfayı kapat olabilir
 
+            } while (number>=11);
+            Console.ReadLine();
 
 
 
@@ -33,6 +37,18 @@ namespace Loops
                 Console.WriteLine(i);
             }
             Console.ReadLine();
+        }
+
+        private static void WhileLoop()
+        {
+            int number = 100;
+            while (number >= 0)
+            {
+                Console.WriteLine(100);
+                //whilede koda bu şekilde müdahale etmez isek kod sonsuza kadar çalışır.
+                number--;
+
+            }
         }
 
         //i 1 den başlıcak; 100 e kadar ve 100 dahil;
