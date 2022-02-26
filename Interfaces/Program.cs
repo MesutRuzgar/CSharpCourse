@@ -10,6 +10,11 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
+            PersonManager personManager = new PersonManager();
+            personManager.Add(new Customer { Id = 1, FirstName = "Mesut", LastName = "Rüzgaar", Adress = "İstanbul" });
+            Console.ReadLine();
+
+
         }
 
         //soyut nesne
@@ -37,7 +42,15 @@ namespace Interfaces
             public string FirstName { get; set; }
             public string LastName { get; set; }
 
-            public string  Departmant { get; set; }
+            public string Departmant { get; set; }
+        }
+
+        class PersonManager
+        {
+            public void Add(IPerson person)
+            {
+                Console.WriteLine(person.FirstName);
+            }
         }
     }
 }
