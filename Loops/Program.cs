@@ -11,19 +11,24 @@ namespace Loops
         static void Main(string[] args)
         {
             //ForLoop();
-            // ForLoop2();
+            //ForLoop2();
             //WhileLoop();
-            // DoWhileLoop();
+            //DoWhileLoop();
 
-
-
-
-
-
-
+            ForeachLoop();
 
         }
 
+        private static void ForeachLoop()
+        {
+            string[] students = { "Engin", "Mesut", "Umut" };
+            foreach (var student in students)
+            {
+
+                Console.WriteLine(student);
+            }
+            Console.ReadLine();
+        }
 
         private static void DoWhileLoop()
         {
