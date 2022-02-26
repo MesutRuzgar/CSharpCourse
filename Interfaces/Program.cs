@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Interfaces
 {
@@ -10,11 +7,27 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
+            //InterfacesIntro();
+            //IsNewInterface();
+
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new OracleCustomerDal());
+
+            Console.ReadLine();
+
+        }
+
+        private static void IsNewInterface()
+        {
+            //intefaceler new lenemez ancak ona bağlı claslar newlenebilir.
+            IPerson person = new Customer();
+        }
+
+        private static void InterfacesIntro()
+        {
             PersonManager personManager = new PersonManager();
             personManager.Add(new Customer { Id = 1, FirstName = "Mesut", LastName = "Rüzgaar", Adress = "İstanbul" });
             Console.ReadLine();
-
-
         }
 
         //soyut nesne
