@@ -35,7 +35,7 @@ namespace AccessModifiers
 
     //bir klasın defaultu internal'dır
     //aynı proje(örn:AccessModifiers) içerisinde referans vermemize gerek kalmaz
-    internal class Course
+    public class Course
     {
         public string Name { get; set; }
        private class NestedClass
