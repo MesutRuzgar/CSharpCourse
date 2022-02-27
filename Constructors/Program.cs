@@ -20,6 +20,10 @@ namespace Constructors
 
             EmployeeManager employeeManager = new EmployeeManager(new DatabaseLogger());
             employeeManager.Add();
+
+
+            PersonManager personManager = new PersonManager("Product");
+            personManager.Add();
             Console.ReadLine();
         }
     }
@@ -99,5 +103,32 @@ namespace Constructors
             _logger.Log();
             Console.WriteLine("Added!");
         }
+
+    }
+    class BaseClass
+    {
+        private string _entity;
+        public BaseClass(string entity)
+        {
+            _entity = entity;
+        }
+        public void Message()
+        {
+            Console.WriteLine("{0} message",_entity);
+        }
+    }
+    class PersonManager : BaseClass
+    {
+        //base sınıfa bir değer göndermek için bu şekilde kodlarız.
+        public PersonManager(string entity) : base(entity)
+        {
+
+        }
+        public void Add()
+        {
+            Console.WriteLine("Added!");
+            Message();
+        }
     }
 }
+
