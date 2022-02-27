@@ -55,8 +55,28 @@ namespace Collections
             //contains listede var mı? sorusuna eşit. sonuc true yada false döner.
             Console.WriteLine(customers.Contains(customer3));
 
-            
+            //indexlerde aramaya baştan veya sondan dahi başlasa
+            //verdiği sonuç baştan başlar ve ona göre sayı üretir
+            //sadece arama yeri başı veya sonu olur.
+            //listede kaçıncı sırada bize onu verir
+            var index =customers.IndexOf(customer3);
+            Console.WriteLine("index :{0}",index);
 
+            //burasıda aramaya sondan başlar
+           var index2 = customers.LastIndexOf(customer3);
+            Console.WriteLine("index :{0}", index2);
+
+            //add methodu gibi işler ancak aradaki farkı
+            //insertte verdiğimiz int değer listede nereye ekliyeceğimizi
+            //gösterir. yani listenin başına veya sonuna bu şekilde veri ekleyebiliriz.
+            customers.Insert(0, customer3);
+
+            //remove değeri birden fazla değer olsa bile bulduğu
+            //ilk değeri siler ve methodu durdurur.
+            //customers.Remove(customer3);
+
+            //listede ismi mesut olanların tamamı siler
+           // customers.RemoveAll(c=>c.FirstName=="Mesut");
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer.FirstName);
