@@ -24,12 +24,23 @@ namespace AccessModifiers
         }
 
     }
-    class Student:Customer
+    class Student : Customer
     {
         public void Save()
         {
             Customer customer = new Customer();
             //Id;
+        }
+    }
+
+    //bir klasın defaultu internal'dır
+    //aynı proje(örn:AccessModifiers) içerisinde referans vermemize gerek kalmaz
+    internal class Course
+    {
+        public string Name { get; set; }
+       private class NestedClass
+        {
+            //bu klass sadece course içerisinde geçerli olur
         }
     }
 }
