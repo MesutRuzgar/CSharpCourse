@@ -13,6 +13,9 @@ namespace Constructors
             CustomerManager customerManager = new CustomerManager();
             customerManager.List();
 
+            Product product = new Product { Id = 1, Name = "Laptop" };
+            //constructor'a göre newleme örneği
+            Product product1 = new Product(2, "Computer");
             Console.ReadLine();
         }
     }
@@ -40,5 +43,25 @@ namespace Constructors
         {
             Console.WriteLine("Added!");
         }
+    }
+
+    class Product
+    {
+        public Product()
+        {
+
+        }
+
+        private int _id;
+        private string _name;
+        public Product(int id,string name)
+        {
+            _id = id;
+            _name = name;
+        }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+
     }
 }
