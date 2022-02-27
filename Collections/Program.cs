@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,23 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            //2 elemanlı listemiz ancak 3. yi eklemek istediğimizde
-            //bellekten hepsi uçacak tekrar newlememiz gerekitiği için
-            string[] cities = new string[2] { "ankara", "istanbul" };
-            cities = new string[3];
-            //0. eleman olarak boş değer verecek nedeni ise üst satırda
-            //newlediğimiz için diğer değerler uçtu
-            Console.WriteLine(cities[0]);
+            //eğer çalıştığımız nesnede type safe yoksa yani belirli bir 
+            //type yoksa arraylist tercih edilebilir. Belli bir sınır yoktur
+            //istediğimiz kadar ekleyebiliriz.
+            ArrayList cities = new ArrayList();
+            cities.Add("Ankara");
+            cities.Add("Adana");
+
+           
+            cities.Add("İstanbul");
+            cities.Add(1);
+            cities.Add('a');
+            foreach (var city in cities)
+            {
+                Console.WriteLine(city);
+            }
+
+
             Console.ReadLine();
         }
     }
