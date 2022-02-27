@@ -24,6 +24,20 @@ namespace Constructors
 
             PersonManager personManager = new PersonManager("Product");
             personManager.Add();
+
+            //o ortamda herkes için numara 10 olur.
+            //newlenmez staticler.
+            //bütün propertylerde static olur.
+            Teacher.Number = 10;
+
+            Utilities.Validate();
+
+            //static
+            Manager.DoSomething();
+            //static değil
+            Manager manager = new Manager();
+            manager.DoSomething2();
+
             Console.ReadLine();
         }
     }
@@ -32,7 +46,7 @@ namespace Constructors
     {
         //ctor tab tab
         //private field _ ile başlar isimlendirme standartıdır.
-        int _count=15;
+        int _count = 15;
         public CustomerManager(int count)
         {
             _count = count;
@@ -43,9 +57,9 @@ namespace Constructors
 
         }
 
-        public  void List()
+        public void List()
         {
-            Console.WriteLine("Listed! {0} items",_count);
+            Console.WriteLine("Listed! {0} items", _count);
         }
         public void Add()
         {
@@ -62,7 +76,7 @@ namespace Constructors
 
         private int _id;
         private string _name;
-        public Product(int id,string name)
+        public Product(int id, string name)
         {
             _id = id;
             _name = name;
@@ -114,11 +128,12 @@ namespace Constructors
         }
         public void Message()
         {
-            Console.WriteLine("{0} message",_entity);
+            Console.WriteLine("{0} message", _entity);
         }
     }
     class PersonManager : BaseClass
     {
+        //ctor oluşturup
         //base sınıfa bir değer göndermek için bu şekilde kodlarız.
         public PersonManager(string entity) : base(entity)
         {
@@ -128,6 +143,33 @@ namespace Constructors
         {
             Console.WriteLine("Added!");
             Message();
+        }
+    }
+    static class Teacher
+    {
+        public static int Number { get; set; }
+    }
+    //static klasta herşer static olmak zorunda
+    //ctor dahil
+    static class Utilities
+    {
+        public static void Validate()
+        {
+            Console.WriteLine("Validation is done");
+        }
+
+    }
+
+    //sınıf static değil ama içindeki static olabilir.
+    class Manager
+    {
+        public static void DoSomething()
+        {
+            Console.WriteLine("done");
+        }
+        public void DoSomething2()
+        {
+            Console.WriteLine("done 2");
         }
     }
 }
