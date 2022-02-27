@@ -31,12 +31,40 @@ namespace Collections
             new Customer { Id = 1, FirstName = "Mesut" },
             new Customer { Id = 2, FirstName = "Umut" }
             };
+          
+
+            //farklı ekleme şekli
+            var customer3 = new Customer
+            {
+                Id = 3,
+                FirstName="İdris"
+            };
+            customers.Add(customer3);
+
+            //veri tabanına örneğin bir liste eklemek istediğimizde
+            //bu methodu kullanarak direk ekleyebiliriz.
+            //adrange de array veya liste eklenebilir.
+            customers.AddRange(new Customer[2]{
+                new Customer{Id=4,FirstName="Ali"},
+                new Customer{Id=5,FirstName="Ayşe"}
+            });
+
+            //bütün listeyi temizler
+            // customers.Clear();
+
+            //contains listede var mı? sorusuna eşit. sonuc true yada false döner.
+            Console.WriteLine(customers.Contains(customer3));
+
+            
+
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer.FirstName);
             }
 
-
+            //eleman sayısını verir count
+            var count = customers.Count;
+            Console.WriteLine("Count :{0}",count);
             Console.ReadLine();
         }
 
