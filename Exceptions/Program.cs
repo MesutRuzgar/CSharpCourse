@@ -21,10 +21,34 @@ namespace Exceptions
 
                 Console.WriteLine(exception.Message);
             }
+
+            //method
+            //()=> bir method demek karşılığında da bir kod kümesi
+            //göndericem demek.
+
+            HandleException(() => {
+                Find();
+                });
          
 
             Console.ReadLine();
 
+        }
+
+        //action parametresiz method bir voiddir return dönmez
+        private static void HandleException(Action action)
+        {
+            try
+            {
+                //ınvoke demek methodu çalıştır demek
+                action.Invoke();
+
+            }
+            catch (Exception exception)
+            {
+
+                Console.WriteLine(exception.Message);
+            }
         }
 
         private static void Find()
