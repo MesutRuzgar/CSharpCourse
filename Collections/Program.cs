@@ -12,7 +12,30 @@ namespace Collections
         static void Main(string[] args)
         {
             //ArrayList();
+            //List();
 
+            //bir anahtar ile değere ulaşmaya çalışıyoruz
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("book", "kitap");
+            dictionary.Add("table", "tablo");
+            dictionary.Add("computer", "bilgisayar");
+
+            Console.WriteLine(dictionary["table"]);
+
+            foreach (var item in dictionary)
+            {
+                Console.WriteLine(item.Value);
+            }
+
+            //bool verir sonucu. bu anahtar sende varmı diyoruz
+            Console.WriteLine(dictionary.ContainsKey("glass"));
+            Console.WriteLine(dictionary.ContainsKey("table"));
+
+            Console.ReadLine();
+        }
+
+        private static void List()
+        {
             //type safe example. sadece string ile çalışıyoruz burada onu belirttik.
             List<string> cities = new List<string>();
             cities.Add("Ankara");
@@ -31,13 +54,13 @@ namespace Collections
             new Customer { Id = 1, FirstName = "Mesut" },
             new Customer { Id = 2, FirstName = "Umut" }
             };
-          
+
 
             //farklı ekleme şekli
             var customer3 = new Customer
             {
                 Id = 3,
-                FirstName="İdris"
+                FirstName = "İdris"
             };
             customers.Add(customer3);
 
@@ -59,11 +82,11 @@ namespace Collections
             //verdiği sonuç baştan başlar ve ona göre sayı üretir
             //sadece arama yeri başı veya sonu olur.
             //listede kaçıncı sırada bize onu verir
-            var index =customers.IndexOf(customer3);
-            Console.WriteLine("index :{0}",index);
+            var index = customers.IndexOf(customer3);
+            Console.WriteLine("index :{0}", index);
 
             //burasıda aramaya sondan başlar
-           var index2 = customers.LastIndexOf(customer3);
+            var index2 = customers.LastIndexOf(customer3);
             Console.WriteLine("index :{0}", index2);
 
             //add methodu gibi işler ancak aradaki farkı
@@ -76,7 +99,7 @@ namespace Collections
             //customers.Remove(customer3);
 
             //listede ismi mesut olanların tamamı siler
-           // customers.RemoveAll(c=>c.FirstName=="Mesut");
+            // customers.RemoveAll(c=>c.FirstName=="Mesut");
             foreach (var customer in customers)
             {
                 Console.WriteLine(customer.FirstName);
@@ -84,8 +107,7 @@ namespace Collections
 
             //eleman sayısını verir count
             var count = customers.Count;
-            Console.WriteLine("Count :{0}",count);
-            Console.ReadLine();
+            Console.WriteLine("Count :{0}", count);
         }
 
         private static void ArrayList()
