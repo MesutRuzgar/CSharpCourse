@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{29B566FB-19FD-4877-A085-3880BA116C04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetDemo", "AdoNetDemo\AdoNetDemo.csproj", "{A9CC1BB8-D723-41CD-ADC7-A8F0B9013014}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{29B566FB-19FD-4877-A085-3880BA116C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29B566FB-19FD-4877-A085-3880BA116C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29B566FB-19FD-4877-A085-3880BA116C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CC1BB8-D723-41CD-ADC7-A8F0B9013014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CC1BB8-D723-41CD-ADC7-A8F0B9013014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CC1BB8-D723-41CD-ADC7-A8F0B9013014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CC1BB8-D723-41CD-ADC7-A8F0B9013014}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
