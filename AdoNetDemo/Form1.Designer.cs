@@ -38,8 +38,17 @@ namespace AdoNetDemo
             this.tbxStockAmount = new System.Windows.Forms.TextBox();
             this.gbxAdd = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.gbxUpdate = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblNameUpdate = new System.Windows.Forms.Label();
+            this.tbxStokAmountUpdate = new System.Windows.Forms.TextBox();
+            this.tbxNameUpdate = new System.Windows.Forms.TextBox();
+            this.tbxUnitPriceUpdate = new System.Windows.Forms.TextBox();
+            this.lblUnitPriceUpdate = new System.Windows.Forms.Label();
+            this.lblStokAmountUpdate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
             this.gbxAdd.SuspendLayout();
+            this.gbxUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgwProducts
@@ -50,7 +59,7 @@ namespace AdoNetDemo
             this.dgwProducts.Name = "dgwProducts";
             this.dgwProducts.Size = new System.Drawing.Size(608, 173);
             this.dgwProducts.TabIndex = 0;
-            this.dgwProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgwProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProducts_CellClick);
             // 
             // lblName
             // 
@@ -127,11 +136,87 @@ namespace AdoNetDemo
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // gbxUpdate
+            // 
+            this.gbxUpdate.Controls.Add(this.btnUpdate);
+            this.gbxUpdate.Controls.Add(this.lblNameUpdate);
+            this.gbxUpdate.Controls.Add(this.tbxStokAmountUpdate);
+            this.gbxUpdate.Controls.Add(this.tbxNameUpdate);
+            this.gbxUpdate.Controls.Add(this.tbxUnitPriceUpdate);
+            this.gbxUpdate.Controls.Add(this.lblUnitPriceUpdate);
+            this.gbxUpdate.Controls.Add(this.lblStokAmountUpdate);
+            this.gbxUpdate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gbxUpdate.Location = new System.Drawing.Point(339, 191);
+            this.gbxUpdate.Name = "gbxUpdate";
+            this.gbxUpdate.Size = new System.Drawing.Size(281, 186);
+            this.gbxUpdate.TabIndex = 8;
+            this.gbxUpdate.TabStop = false;
+            this.gbxUpdate.Text = "Update a Product";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(121, 139);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 23);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // lblNameUpdate
+            // 
+            this.lblNameUpdate.AutoSize = true;
+            this.lblNameUpdate.Location = new System.Drawing.Point(32, 25);
+            this.lblNameUpdate.Name = "lblNameUpdate";
+            this.lblNameUpdate.Size = new System.Drawing.Size(34, 13);
+            this.lblNameUpdate.TabIndex = 1;
+            this.lblNameUpdate.Text = "Name";
+            // 
+            // tbxStokAmountUpdate
+            // 
+            this.tbxStokAmountUpdate.Location = new System.Drawing.Point(121, 102);
+            this.tbxStokAmountUpdate.Name = "tbxStokAmountUpdate";
+            this.tbxStokAmountUpdate.Size = new System.Drawing.Size(100, 21);
+            this.tbxStokAmountUpdate.TabIndex = 6;
+            // 
+            // tbxNameUpdate
+            // 
+            this.tbxNameUpdate.Location = new System.Drawing.Point(121, 22);
+            this.tbxNameUpdate.Name = "tbxNameUpdate";
+            this.tbxNameUpdate.Size = new System.Drawing.Size(100, 21);
+            this.tbxNameUpdate.TabIndex = 2;
+            // 
+            // tbxUnitPriceUpdate
+            // 
+            this.tbxUnitPriceUpdate.Location = new System.Drawing.Point(121, 63);
+            this.tbxUnitPriceUpdate.Name = "tbxUnitPriceUpdate";
+            this.tbxUnitPriceUpdate.Size = new System.Drawing.Size(100, 21);
+            this.tbxUnitPriceUpdate.TabIndex = 5;
+            // 
+            // lblUnitPriceUpdate
+            // 
+            this.lblUnitPriceUpdate.AutoSize = true;
+            this.lblUnitPriceUpdate.Location = new System.Drawing.Point(32, 66);
+            this.lblUnitPriceUpdate.Name = "lblUnitPriceUpdate";
+            this.lblUnitPriceUpdate.Size = new System.Drawing.Size(52, 13);
+            this.lblUnitPriceUpdate.TabIndex = 3;
+            this.lblUnitPriceUpdate.Text = "Unit Price";
+            // 
+            // lblStokAmountUpdate
+            // 
+            this.lblStokAmountUpdate.AutoSize = true;
+            this.lblStokAmountUpdate.Location = new System.Drawing.Point(32, 105);
+            this.lblStokAmountUpdate.Name = "lblStokAmountUpdate";
+            this.lblStokAmountUpdate.Size = new System.Drawing.Size(73, 13);
+            this.lblStokAmountUpdate.TabIndex = 4;
+            this.lblStokAmountUpdate.Text = "Stock Amount";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 389);
+            this.Controls.Add(this.gbxUpdate);
             this.Controls.Add(this.gbxAdd);
             this.Controls.Add(this.dgwProducts);
             this.Name = "Form1";
@@ -140,6 +225,8 @@ namespace AdoNetDemo
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).EndInit();
             this.gbxAdd.ResumeLayout(false);
             this.gbxAdd.PerformLayout();
+            this.gbxUpdate.ResumeLayout(false);
+            this.gbxUpdate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -155,6 +242,14 @@ namespace AdoNetDemo
         private System.Windows.Forms.TextBox tbxStockAmount;
         private System.Windows.Forms.GroupBox gbxAdd;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.GroupBox gbxUpdate;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lblNameUpdate;
+        private System.Windows.Forms.TextBox tbxStokAmountUpdate;
+        private System.Windows.Forms.TextBox tbxNameUpdate;
+        private System.Windows.Forms.TextBox tbxUnitPriceUpdate;
+        private System.Windows.Forms.Label lblUnitPriceUpdate;
+        private System.Windows.Forms.Label lblStokAmountUpdate;
     }
 }
 
