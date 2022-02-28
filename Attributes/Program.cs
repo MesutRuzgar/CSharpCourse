@@ -18,6 +18,7 @@ namespace Attributes
         }
     }
     [ToTable("Customers")]
+       
     class Customer
     {
         public int Id { get; set; }
@@ -45,10 +46,20 @@ namespace Attributes
                 customer.LastName, customer.Age);
         }
     }
+    //bir attribute'ın üzerine attributeusage eklenirse onu nasıl kullanacağımız şekillenir.
+    //targets ise nerede kullanacağımızı belirtir. .All dersek heryerde kullanılır.
+    //.Class dersek sadece classlarda kullanabiliriz
+    // pipe kullanarak multi kullanıma açmış oluyoruz. istediğimiz kadar | koyarak ekleriz
+    //allow multiple true olursa aynı yerde 2 kere kullanmamıza yarar
+
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+    
     class RequiredPropertyAttribute:Attribute
     {
 
     }
+
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     class ToTableAttribute:Attribute
     {
         private string _tableName;
