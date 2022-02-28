@@ -65,5 +65,13 @@ namespace AdoNetDemo
             LoadProducts();
             MessageBox.Show("Product Updated!");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id =  Convert.ToInt32(dgwProducts.CurrentRow.Cells[0].Value);
+            _productDal.Delete(id);
+            LoadProducts();
+            MessageBox.Show("Deleted!");
+        }
     }
 }

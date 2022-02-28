@@ -108,5 +108,17 @@ namespace AdoNetDemo
 
             _connection.Close();
         }
+        public void Delete(int Id)
+        {
+            ConnectionControl();
+            SqlCommand command = new SqlCommand(
+                "Delete from Products where Id=@id", _connection);
+           
+            command.Parameters.AddWithValue("@id",Id);
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
     }
 }

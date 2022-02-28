@@ -46,6 +46,7 @@ namespace AdoNetDemo
             this.tbxUnitPriceUpdate = new System.Windows.Forms.TextBox();
             this.lblUnitPriceUpdate = new System.Windows.Forms.Label();
             this.lblStokAmountUpdate = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
             this.gbxAdd.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
@@ -55,7 +56,7 @@ namespace AdoNetDemo
             // 
             this.dgwProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProducts.Location = new System.Drawing.Point(12, 12);
+            this.dgwProducts.Location = new System.Drawing.Point(12, 34);
             this.dgwProducts.Name = "dgwProducts";
             this.dgwProducts.Size = new System.Drawing.Size(608, 173);
             this.dgwProducts.TabIndex = 0;
@@ -119,9 +120,9 @@ namespace AdoNetDemo
             this.gbxAdd.Controls.Add(this.unitPrice);
             this.gbxAdd.Controls.Add(this.lblStokAmount);
             this.gbxAdd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdd.Location = new System.Drawing.Point(12, 191);
+            this.gbxAdd.Location = new System.Drawing.Point(12, 213);
             this.gbxAdd.Name = "gbxAdd";
-            this.gbxAdd.Size = new System.Drawing.Size(281, 186);
+            this.gbxAdd.Size = new System.Drawing.Size(281, 164);
             this.gbxAdd.TabIndex = 7;
             this.gbxAdd.TabStop = false;
             this.gbxAdd.Text = "Add a Product";
@@ -146,9 +147,9 @@ namespace AdoNetDemo
             this.gbxUpdate.Controls.Add(this.lblUnitPriceUpdate);
             this.gbxUpdate.Controls.Add(this.lblStokAmountUpdate);
             this.gbxUpdate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxUpdate.Location = new System.Drawing.Point(339, 191);
+            this.gbxUpdate.Location = new System.Drawing.Point(339, 213);
             this.gbxUpdate.Name = "gbxUpdate";
-            this.gbxUpdate.Size = new System.Drawing.Size(281, 186);
+            this.gbxUpdate.Size = new System.Drawing.Size(281, 164);
             this.gbxUpdate.TabIndex = 8;
             this.gbxUpdate.TabStop = false;
             this.gbxUpdate.Text = "Update a Product";
@@ -211,11 +212,22 @@ namespace AdoNetDemo
             this.lblStokAmountUpdate.TabIndex = 4;
             this.lblStokAmountUpdate.Text = "Stock Amount";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(460, 5);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(100, 23);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 389);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.gbxUpdate);
             this.Controls.Add(this.gbxAdd);
             this.Controls.Add(this.dgwProducts);
@@ -250,6 +262,7 @@ namespace AdoNetDemo
         private System.Windows.Forms.TextBox tbxUnitPriceUpdate;
         private System.Windows.Forms.Label lblUnitPriceUpdate;
         private System.Windows.Forms.Label lblStokAmountUpdate;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 
