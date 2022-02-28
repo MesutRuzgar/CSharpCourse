@@ -112,16 +112,16 @@ namespace AdoNetDemo
             this.gbxAdd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxAdd.Location = new System.Drawing.Point(12, 191);
             this.gbxAdd.Name = "gbxAdd";
-            this.gbxAdd.Size = new System.Drawing.Size(345, 186);
+            this.gbxAdd.Size = new System.Drawing.Size(281, 186);
             this.gbxAdd.TabIndex = 7;
             this.gbxAdd.TabStop = false;
             this.gbxAdd.Text = "Add a Product";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(146, 139);
+            this.btnAdd.Location = new System.Drawing.Point(121, 139);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 23);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
