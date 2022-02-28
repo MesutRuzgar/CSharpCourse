@@ -12,6 +12,48 @@ namespace Exceptions
         {
             //ExceptionIntro();
 
+            //TryCatch();
+
+            //ActionDemo();
+
+            //1 ve 2. si parametreler 3.sü dönüş tipi
+            Func<int, int, int> add = Topla;
+            //Console.WriteLine(add(3,5));
+
+            //parametresiz methodu int olarak döndürüyor demek
+            Func<int> getRandomNumber = delegate ()
+            {
+                Random random = new Random();
+                return random.Next(1, 100);
+            };
+            //farklı bir yazım şekli action gibi
+            Func<int> getRandomNumber2 = () => new Random().Next(1, 100);
+            Console.WriteLine(getRandomNumber());
+            Console.WriteLine(getRandomNumber2());
+
+            Console.ReadLine();
+
+        }
+
+        static int Topla(int x, int y)
+        {
+            return x + y;
+        }
+
+        private static void ActionDemo()
+        {
+            //method
+            //()=> bir method demek karşılığında da bir kod kümesi
+            //göndericem demek.
+
+            HandleException(() =>
+            {
+                Find();
+            });
+        }
+
+        private static void TryCatch()
+        {
             try
             {
                 Find();
@@ -21,18 +63,6 @@ namespace Exceptions
 
                 Console.WriteLine(exception.Message);
             }
-
-            //method
-            //()=> bir method demek karşılığında da bir kod kümesi
-            //göndericem demek.
-
-            HandleException(() => {
-                Find();
-                });
-         
-
-            Console.ReadLine();
-
         }
 
         //action parametresiz method bir voiddir return dönmez
