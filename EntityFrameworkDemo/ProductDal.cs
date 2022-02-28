@@ -46,5 +46,12 @@ namespace EntityFrameworkDemo
                 context.SaveChanges();
             }
         }
+        public List<Product> GetByName(string key)
+        {
+            using (ETradeContext context = new ETradeContext())
+            {
+                return context.Products.Where(p=>p.Name.Contains(key)).ToList();
+            }
+        }
     }
 }

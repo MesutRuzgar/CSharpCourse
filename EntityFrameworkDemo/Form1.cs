@@ -27,6 +27,19 @@ namespace EntityFrameworkDemo
         {
             dgwProducts.DataSource = _productDal.GetAll();
         }
+        private void SearchProducts(string key)
+        {
+            //collecitondan yani genel listeden alıyoruz 1.de
+            //bunun dezavantajı ise küçük büyük harf duyarlı
+            //duyarlılığı kaldırmak için hem ismi hemde anahtarımızı küçük harfe çevirdik
+            //var result = _productDal.GetAll().Where(p=>p.Name.ToLower().Contains(key.ToLower())).ToList();
+            
+
+            //veritabanından çektiriyoruz burada
+            //avantajı büyük küçük harf duyarlı değil bu kod
+            var result = _productDal.GetByName(key);
+            dgwProducts.DataSource = result;
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -70,6 +83,11 @@ namespace EntityFrameworkDemo
             });
             LoadProducts();
             MessageBox.Show("Deleted!");
+        }
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchProducts(tbxSearch.Text);
         }
     }
 }

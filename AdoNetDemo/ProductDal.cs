@@ -13,6 +13,7 @@ namespace AdoNetDemo
         SqlConnection _connection = new SqlConnection(
              @"server=(localdb)\mssqllocaldb;initial catalog=ETrade;integrated security=true");
 
+
         public DataTable GetAll()
         {
             
@@ -120,5 +121,6 @@ namespace AdoNetDemo
             _connection.Close();
         }
 
+        
     }
 }
