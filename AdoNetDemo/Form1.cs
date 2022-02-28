@@ -26,7 +26,7 @@ namespace AdoNetDemo
         {
             ProductDal productDal = new ProductDal();
 
-            dgwProducts.DataSource = productDal.GetAll();
+            dgwProducts.DataSource = productDal.GetAll2();
         }
     }
 }
