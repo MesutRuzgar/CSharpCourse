@@ -10,19 +10,20 @@ namespace AdoNetDemo
 {
    public class ProductDal
     {
+        SqlConnection _connection = new SqlConnection(
+             @"server=(localdb)\mssqllocaldb;initial catalog=ETrade;integrated security=true");
+
         public DataTable GetAll()
         {
-            SqlConnection connection = new SqlConnection(
-             @"server=(localdb)\mssqllocaldb;initial catalog=ETrade;integrated security=true");
             
             //bağlantımız kapalı ise sunucuya bağlantı aç dedik
-            if (connection.State==ConnectionState.Closed)
+            if (_connection.State==ConnectionState.Closed)
             {
-                connection.Open();
+                _connection.Open();
             }
             
             //benim string olarak yazdığım bir komutum var onu bağlantıya gönder dedik.
-            SqlCommand command = new SqlCommand("Select * from Products",connection);
+            SqlCommand command = new SqlCommand("Select * from Products",_connection);
 
             //select komutunu çalıştırabilmek için execute reader kullandık
             //yani kodu çalıştırdık. ve onu reader a atadık.
@@ -34,24 +35,17 @@ namespace AdoNetDemo
             DataTable dataTable = new DataTable();
             dataTable.Load(reader);
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return dataTable;
         }
 
         //listeli versiyon
         public List<Product> GetAll2()
         {
-            SqlConnection connection = new SqlConnection(
-             @"server=(localdb)\mssqllocaldb;initial catalog=ETrade;integrated security=true");
-
-            //bağlantımız kapalı ise sunucuya bağlantı aç dedik
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
+            ConnectionControl();
 
             //benim string olarak yazdığım bir komutum var onu bağlantıya gönder dedik.
-            SqlCommand command = new SqlCommand("Select * from Products", connection);
+            SqlCommand command = new SqlCommand("Select * from Products", _connection);
 
             //select komutunu çalıştırabilmek için execute reader kullandık
             //yani kodu çalıştırdık. ve onu reader a atadık.
@@ -67,18 +61,40 @@ namespace AdoNetDemo
                 {
                     //burdaki amac readerden gelen id obje türünde olduğundan
                     //conver.toint32 yaparak inte döndürdük.
-                    Id=Convert.ToInt32(reader["Id"]),
+                    Id = Convert.ToInt32(reader["Id"]),
                     Name = reader["Name"].ToString(),
                     StokAmount = Convert.ToInt32(reader["StokAmount"]),
-                    UnitPrice= Convert.ToDecimal(reader["UnitPrice"]),
+                    UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
                 };
 
                 products.Add(product);
             }
 
             reader.Close();
-            connection.Close();
+            _connection.Close();
             return products;
         }
+
+        private void ConnectionControl()
+        {
+            //bağlantımız kapalı ise sunucuya bağlantı aç dedik
+            if (_connection.State == ConnectionState.Closed)
+            {
+                _connection.Open();
+            }
+        }
+
+        public void Add(Product product)
+        {
+            ConnectionControl();
+            SqlCommand command = new SqlCommand("Insert into Products values(@name,@unitPrice,@StokAmount)", _connection);
+            command.Parameters.AddWithValue("@name", product.Name);
+            command.Parameters.AddWithValue("@unitPrice", product.UnitPrice);
+            command.Parameters.AddWithValue("@stokAmount", product.StokAmount);
+            command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
     }
 }
