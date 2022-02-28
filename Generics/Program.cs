@@ -32,7 +32,7 @@ namespace Generics
                 return new List<T>(items);
             }
         }
-        class Product
+        class Product:IEntity
         {
 
         }
@@ -41,7 +41,7 @@ namespace Generics
         {
           
         }
-        class Customer
+        class Customer : IEntity
         {
             public string  FirstName { get; set; }
         }
@@ -49,8 +49,21 @@ namespace Generics
         {
            
         }
+        interface IEntity
+        {
 
-        interface IRepository<T>
+        }
+
+        //where ekleyerek T değişkenimizi sınırlandırmış olduk.
+        //sadece referans tip yazılabilir yaptık.
+        //1. , den sonra Ientityden implemente olmalı inherit edilmiş olmalı
+        //bunun amacı veritabanıyla eşleşmeli demek istedik
+        //2. , den sonra ise ve newlenebilir olmalı dedik
+        //newleme her zaman en sona konulur
+
+        //sadece "T:struct" yazarsak sadece değer tiplerle çalışmamızı sağlar
+        //int bool string gibi
+        interface IRepository<T> where T:class, IEntity, new()
         {
             List<T> GetAll();
             T Get(int id);
