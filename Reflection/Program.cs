@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,13 +38,38 @@ namespace Reflection
             //invoke ile calıştırır parantez içerisinde parametre varsa ekleriz
             //tekrar içine instance yazmamızın sebebi methodu bulduk ama neyi 
             //çalıştırıcağınıda belirtmiş olduk 
-            Console.WriteLine(instance.GetType().GetMethod("Topla2").Invoke(instance, null)); 
+            Console.WriteLine(instance.GetType().GetMethod("Topla2").Invoke(instance, null));
+
+            //method isimlerine ulaşmak için kullanırız 
+            Console.WriteLine("------------------------------");
+            var methodlar = tip.GetMethods();
+            foreach (var info in methodlar)
+            {
+                Console.WriteLine("Method adı : {0}",info.Name);
+                //parametrelerine ulaşmak için kullanırız
+                foreach (var parametre in info.GetParameters())
+                {
+                    Console.WriteLine("Parametre : {0}",parametre.Name);
+                }
+                //varsa eğer attributelerine ulaşmak için kullanırız
+                foreach (var attribute in info.GetCustomAttributes())
+                {
+                    Console.WriteLine("Attribute : {0}",attribute.GetType().Name);
+                }
+            }
+
 
             Console.ReadLine();
 
         }
     }
+    class MethodNameAttribute:Attribute
+    {
+        public MethodNameAttribute(string name)
+        {
 
+        }
+    }
    public class DortIslem
     {
         int _sayi1;
@@ -60,7 +86,7 @@ namespace Reflection
             _sayi2 = sayi2;
 
         }
-
+        [MethodName("Toplama")]
         public int Topla(int sayi1,int sayi2)
         {
             return sayi1 + sayi2;
