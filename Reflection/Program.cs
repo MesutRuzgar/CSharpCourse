@@ -29,8 +29,15 @@ namespace Reflection
 
 
             //parametreli version
-            DortIslem dortIslem = (DortIslem)Activator.CreateInstance(tip,6,7);
-            Console.WriteLine(dortIslem.Topla2());
+            //DortIslem dortIslem = (DortIslem)Activator.CreateInstance(tip,6,7);
+            //Console.WriteLine(dortIslem.Topla2());
+
+            var instance = Activator.CreateInstance(tip, 6, 7);
+            //gettype tipini bulur getmethod ile methodu çağırır
+            //invoke ile calıştırır parantez içerisinde parametre varsa ekleriz
+            //tekrar içine instance yazmamızın sebebi methodu bulduk ama neyi 
+            //çalıştırıcağınıda belirtmiş olduk 
+            Console.WriteLine(instance.GetType().GetMethod("Topla2").Invoke(instance, null)); 
 
             Console.ReadLine();
 
